@@ -1,0 +1,337 @@
+/* ============================================================================
+   Built to match the printed $100M Scaling Roadmap guides, not to reinterpret
+   them. Everything below was read off the source PDFs:
+
+   TYPE     Poppins. The PDFs embed exactly three cuts, so this uses exactly
+            three: Light 300 body, SemiBold 600 labels, ExtraBold 800 display.
+   COLOUR   White page. #131628 navy. #000 black bars. #6F00FF violet.
+            #EAEAEA hairlines. Sampled from 38 pages of the guides.
+   PARTS    the black stage bar with the name in violet, the violet label
+            column, the black CONSTRAINT / TO GRADUATE header, the black
+            Bottom line row, the violet block behind a headline, violet tags,
+            the running header, the ruled footer.
+   ========================================================================== */
+
+:root {
+  --white:  #FFFFFF;
+  --navy:   #131628;
+  --black:  #0B0D18;
+  --violet: #6F00FF;
+  --violet-lt: #9F87EE;
+  --violet-dk: #5A00CC;
+
+  --line:   #EAEAEA;
+  --line-2: #D8D8DE;
+  --grey:   #6B6F80;
+  --grey-lt:#767B8C;
+
+  --good: #0F9D63;
+  --warn: #C2410C;
+
+  --font: var(--font-poppins), "Poppins", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+
+  --s1: 6px;  --s2: 12px; --s3: 20px; --s4: 30px;
+  --s5: 46px; --s6: 68px;
+
+  --page: 1080px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--white);
+  color: var(--navy);
+  font-family: var(--font);
+  font-weight: 300;
+  font-size: 16.5px;
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+p { margin: 0; }
+
+/* ------------------------------------------------------------------ type ---
+   ExtraBold + uppercase is the guides' display voice. It is used ONLY on
+   display, never on body copy, which is Light 300 with open leading. */
+.display {
+  font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em;
+  line-height: 0.98; margin: 0; text-wrap: balance;
+}
+.d1 { font-size: clamp(2.1rem, 6.5vw, 4rem); }
+.d2 { font-size: clamp(1.5rem, 4vw, 2.3rem); }
+.d3 { font-size: clamp(1.05rem, 2.4vw, 1.35rem); letter-spacing: -0.01em; line-height: 1.15; }
+
+.lede { font-size: 1.06rem; max-width: 66ch; color: var(--navy); }
+.body { max-width: 68ch; }
+.tiny { font-size: 0.85rem; color: var(--grey); line-height: 1.6; }
+
+.label {
+  font-weight: 600; font-size: 0.7rem; letter-spacing: 0.13em;
+  text-transform: uppercase; color: var(--grey); display: block;
+}
+.label.on { color: var(--violet); }
+
+/* ---------------------------------------------------------------- layout --- */
+.wrap { max-width: var(--page); margin: 0 auto; padding-inline: max(18px, min(4vw, 34px)); }
+.reading { max-width: 780px; }
+.stack { display: flex; flex-direction: column; }
+.s1 { gap: var(--s1); } .s2 { gap: var(--s2); } .s3 { gap: var(--s3); }
+.s4 { gap: var(--s4); } .s5 { gap: var(--s5); } .s6 { gap: var(--s6); }
+.section { padding: clamp(30px, 5vw, 46px) 0 clamp(50px, 8vw, 80px); }
+.rule { border: 0; border-top: 1px solid var(--line); margin: 0; }
+.split { display: grid; grid-template-columns: 208px minmax(0, 1fr); gap: clamp(24px, 5vw, 56px); align-items: start; }
+@media (max-width: 900px) { .split { grid-template-columns: minmax(0, 1fr); gap: var(--s4); } }
+.pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; }
+
+/* content-first grid: wide reading column, narrower rail. The .split above is
+   the opposite (narrow index first) and must not be used for page content. */
+.splitwide { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: clamp(24px, 5vw, 56px); align-items: start; }
+@media (max-width: 940px) { .splitwide { grid-template-columns: minmax(0, 1fr); gap: var(--s4); } }
+
+/* --------------------------------------------------- running header/footer ---
+   Straight off every page of the guides. */
+.guidehead { border-bottom: 1px solid var(--line); background: var(--white); }
+.guidehead .row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--s3); padding: 13px 0; flex-wrap: wrap;
+}
+.crumb { font-size: 0.78rem; text-decoration: none; letter-spacing: 0.01em; }
+.crumb b { font-weight: 800; }
+.crumb .v { font-weight: 800; color: var(--violet); }
+.crumb .n { font-weight: 300; }
+.guidenav { display: flex; gap: var(--s3); align-items: center; }
+.guidenav a, .linkbtn {
+  font-weight: 300; font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--grey); text-decoration: none; background: none; border: 0; cursor: pointer;
+  /* 44px-tall hit area without horizontal negative margins, which push past the viewport edge */
+  font-family: inherit; padding-block: 12px; margin-block: -12px; padding-inline: 2px;
+}
+.guidenav a:hover, .linkbtn:hover { color: var(--violet); }
+
+footer.site { border-top: 1px solid var(--line); margin-top: var(--s5); padding: var(--s3) 0 var(--s6); }
+footer.site .mark { font-weight: 800; font-size: 0.82rem; letter-spacing: 0.02em; }
+footer.site p { color: var(--grey-lt); font-size: 0.8rem; max-width: 78ch; line-height: 1.65; }
+
+/* ------------------------------------------------------------ stage bar ---
+   The signature lockup: black bar, "STAGE 04:" white, the name in violet. */
+.stagebar {
+  background: var(--black); color: var(--white);
+  padding: clamp(12px, 2.2vw, 20px) clamp(16px, 3vw, 30px);
+  display: flex; align-items: baseline; gap: 0.4em; flex-wrap: wrap;
+}
+.stagebar .n { font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.98; font-size: clamp(1.6rem, 5.4vw, 3.4rem); }
+.stagebar .nm { font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.98; font-size: clamp(1.6rem, 5.4vw, 3.4rem); color: var(--violet); }
+
+/* ---------------------------------------------------------- spec table ---
+   Violet label column, white value column, hairline between rows. */
+.specs { display: grid; grid-template-columns: minmax(150px, 210px) minmax(0, 1fr); gap: 2px; }
+.specs dt {
+  background: var(--violet); color: var(--white);
+  font-weight: 600; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 9px 12px; display: flex; align-items: center;
+}
+.specs dd { margin: 0; padding: 9px 12px; border-bottom: 1px solid var(--line); font-size: 0.95rem; display: flex; align-items: center; }
+
+/* ------------------------------------------------- constraint / graduate ---
+   Black header row, violet function labels, black bottom line. */
+.cwrap { overflow-x: auto; }
+table.cgrid { border-collapse: separate; border-spacing: 2px; width: 100%; min-width: 660px; }
+table.cgrid thead th {
+  background: var(--black); color: var(--white);
+  font-weight: 600; font-size: 0.72rem; letter-spacing: 0.09em; text-transform: uppercase;
+  padding: 9px 12px; text-align: center;
+}
+table.cgrid thead th:first-child { background: transparent; }
+table.cgrid tbody th {
+  background: var(--violet); color: var(--white);
+  font-weight: 600; font-size: 0.72rem; letter-spacing: 0.05em; text-transform: uppercase;
+  padding: 9px 12px; text-align: left; vertical-align: middle; width: 1%; white-space: nowrap;
+}
+table.cgrid td {
+  padding: 9px 14px; font-size: 0.9rem; line-height: 1.5; vertical-align: middle;
+  border-bottom: 1px solid var(--line);
+}
+table.cgrid tfoot th, table.cgrid tfoot td { background: var(--black); color: var(--white); border: 0; }
+table.cgrid tfoot th { font-style: italic; font-weight: 600; text-transform: none; letter-spacing: 0; }
+
+/* ----------------------------------------------------------- violet block ---
+   The guides set a section headline inside a solid violet rectangle. */
+.vblock {
+  background: var(--violet); color: var(--white);
+  padding: clamp(14px, 2.4vw, 22px) clamp(16px, 3vw, 26px);
+  display: inline-block; max-width: 100%;
+  align-self: flex-start;   /* hug the headline, do not stretch as a flex child */
+}
+.vblock .display { color: var(--white); }
+
+.tag {
+  display: inline-block; background: var(--violet); color: var(--white);
+  font-weight: 600; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 5px 11px; margin: 0;
+  align-self: flex-start;   /* hug the label, do not stretch as a flex child */
+}
+
+/* a navy rule down the left of a grouped block, as on the guides' list pages */
+.navyrail { border-left: 6px solid var(--navy); padding-left: clamp(14px, 2.5vw, 22px); }
+
+/* ---------------------------------------------------------------- controls --- */
+.btn {
+  font-family: inherit; font-weight: 600; font-size: 0.86rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--violet); color: var(--white); border: 0; border-radius: 0;
+  padding: 14px 26px; cursor: pointer; text-decoration: none; display: inline-block;
+  line-height: 1.2; text-align: center;
+}
+.btn:hover { background: var(--violet-dk); }
+.btn:disabled { background: var(--line-2); color: var(--grey); cursor: not-allowed; }
+.btn.dark { background: var(--navy); }
+.btn.dark:hover { background: var(--black); }
+
+:where(a, button, input, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--violet); outline-offset: 2px;
+}
+
+label.field { display: flex; flex-direction: column; gap: var(--s1); }
+input[type="email"], input[type="password"], input[type="text"], textarea {
+  background: var(--white); border: 1px solid var(--line-2); border-radius: 0;
+  color: var(--navy); padding: 12px 14px; font: inherit; font-weight: 300; font-size: 1rem; width: 100%;
+}
+input:hover, textarea:hover { border-color: var(--violet-lt); }
+input:focus, textarea:focus { border-color: var(--violet); }
+textarea { min-height: 150px; resize: vertical; line-height: 1.6; }
+::placeholder { color: var(--grey-lt); }
+
+.err { border-left: 6px solid var(--warn); background: #C2410C0d; padding: var(--s2) var(--s3); font-size: 0.92rem; }
+.note { border-left: 6px solid var(--violet); background: #6F00FF0a; padding: var(--s2) var(--s3); }
+
+/* ------------------------------------------------------------------ ladder --- */
+.ladder { display: flex; flex-direction: column; gap: 2px; }
+.rung {
+  display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; gap: var(--s2);
+  align-items: center; padding: 7px 10px; text-decoration: none;
+  background: #F4F4F6; color: var(--navy);
+}
+.rung .num { font-weight: 600; font-size: 0.7rem; color: var(--grey-lt); }
+.rung .nm { font-weight: 600; font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; }
+.rung .meta { font-weight: 600; font-size: 0.66rem; color: var(--grey-lt); }
+.rung:hover { background: #E9E6F6; }
+.rung[data-here="1"] { background: var(--violet); color: var(--white); }
+.rung[data-here="1"] .num, .rung[data-here="1"] .meta { color: #ffffffcc; }
+.rung[data-past="1"] { background: var(--navy); color: #ffffff; }
+.rung[data-past="1"] .num, .rung[data-past="1"] .meta { color: #ffffff80; }
+.rung[data-past="1"] .nm { color: #ffffffb0; }
+
+@media (max-width: 900px) {
+  .ladder { flex-direction: row; overflow-x: auto; padding-bottom: 4px; }
+  .rung { grid-template-columns: auto auto; flex: 0 0 auto; gap: 7px; }
+  .rung .meta { display: none; }
+}
+
+/* -------------------------------------------------------------- step rows --- */
+.rows { display: flex; flex-direction: column; gap: 2px; }
+.row {
+  display: grid; grid-template-columns: 6px minmax(0, 1fr) auto; gap: var(--s3);
+  align-items: center; padding: 14px 16px; text-decoration: none; color: inherit;
+  background: #F6F6F8;
+}
+.row:hover { background: #EFEDF9; }
+.row .stripe { align-self: stretch; background: var(--line-2); }
+.row[data-s="done"] .stripe { background: var(--good); }
+.row[data-s="part"] .stripe { background: var(--warn); }
+.rowtitle { font-weight: 300; font-size: 1rem; }
+.row[data-s="done"] .rowtitle { color: var(--grey); }
+.rowstate { font-weight: 600; font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-lt); white-space: nowrap; }
+.row[data-s="done"] .rowstate { color: var(--good); }
+.row[data-s="part"] .rowstate { color: var(--warn); }
+
+/* --------------------------------------------------------------- choices --- */
+.choices { display: flex; flex-direction: column; gap: 2px; }
+.choice {
+  display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: var(--s2);
+  align-items: start; padding: 11px 14px; cursor: pointer; background: #F6F6F8;
+}
+.choice:hover { background: #EFEDF9; }
+.choice input { width: 17px; height: 17px; margin: 4px 0 0; accent-color: var(--violet); }
+.choice .txt { font-size: 0.97rem; line-height: 1.5; }
+.choice .sub { display: block; color: var(--grey-lt); font-size: 0.83rem; }
+.choice:has(input:checked) { background: var(--violet); color: var(--white); }
+.choice:has(input:checked) .sub { color: #ffffffc0; }
+
+/* -------------------------------------------------------------- progress --- */
+.meter { height: 6px; background: var(--line); }
+.meter > i { display: block; height: 100%; background: var(--violet); }
+
+.focusblock { border: 2px solid var(--violet); padding: clamp(18px, 3vw, 26px); }
+
+ol.numbered { margin: 0; padding: 0; list-style: none; counter-reset: n; display: flex; flex-direction: column; gap: 2px; }
+ol.numbered li {
+  counter-increment: n; display: grid; grid-template-columns: 42px minmax(0, 1fr);
+  gap: var(--s2); padding: 15px 16px; background: #F6F6F8;
+}
+ol.numbered li::before {
+  content: counter(n, decimal-leading-zero);
+  font-weight: 800; font-size: 0.9rem; color: var(--violet);
+}
+ul.plain { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--s1); }
+
+/* small inline row: mic button beside the draft note, button beside the wait note */
+.rowline { display: flex; align-items: center; gap: var(--s2); flex-wrap: wrap; }
+
+.micbtn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: inherit; font-weight: 600; font-size: 0.7rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  background: none; border: 1px solid var(--line-2); color: var(--grey);
+  padding: 7px 12px; cursor: pointer; border-radius: 0;
+}
+.micbtn:hover { border-color: var(--violet); color: var(--violet); }
+.micbtn[data-on="1"] { background: var(--violet); border-color: var(--violet); color: var(--white); }
+
+/* previous / next part links at the foot of a step */
+.partnav {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+  border-top: 1px solid var(--line); padding-top: var(--s3);
+}
+.partlink { text-decoration: none; display: flex; flex-direction: column; gap: 3px; padding: 10px 12px; background: #F6F6F8; }
+.partlink:hover { background: #EFEDF9; }
+.partlink:hover .partname { color: var(--violet); }
+.partlink.right { text-align: right; align-items: flex-end; }
+.partname { font-size: 0.92rem; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+
+/* sticky counter under the placement questions: stays inside the column,
+   because WebKit did not honour the full-bleed negative margin trick */
+.placebar {
+  position: sticky; bottom: 0; background: var(--white);
+  border-top: 1px solid var(--line);
+}
+
+/* anything scrolled to programmatically (taps, focus, anchors) clears the bar */
+.choice, fieldset { scroll-margin-block: 40px 110px; }
+
+/* the function x stage map */
+table.mapgrid { border-collapse: separate; border-spacing: 3px; width: 100%; min-width: 560px; }
+table.mapgrid thead th { font-weight: 600; font-size: 0.68rem; color: var(--grey); text-align: center; padding: 4px 2px; }
+table.mapgrid thead th a { text-decoration: none; }
+table.mapgrid thead th[data-here="1"] a { color: var(--violet); font-weight: 800; }
+table.mapgrid tbody th {
+  font-weight: 600; font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--grey); text-align: left; padding-right: 10px; white-space: nowrap;
+}
+table.mapgrid td { padding: 0; }
+table.mapgrid td[data-here="1"] { background: #6F00FF14; }
+.mapcell { display: block; width: 100%; height: 34px; min-width: 34px; }
+.mapcell[data-s="done"]    { background: var(--good); }
+.mapcell[data-s="started"] { background: var(--warn); }
+.mapcell[data-s="placed"]  { background: #0F9D6355; }
+.mapcell[data-s="open"]    { background: var(--violet); }
+.mapcell[data-s="ahead"]   { background: #EDEDF1; }
+.mapcell:hover { outline: 2px solid var(--navy); outline-offset: -2px; }
+.mapkey { display: inline-block; width: 10px; height: 10px; vertical-align: baseline; }
+.mapkey[data-k="done"]    { background: var(--good); }
+.mapkey[data-k="started"] { background: var(--warn); }
+.mapkey[data-k="placed"]  { background: #0F9D6355; }
+.mapkey[data-k="open"]    { background: var(--violet); }
+.mapkey[data-k="ahead"]   { background: #EDEDF1; }

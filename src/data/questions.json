@@ -1,0 +1,287 @@
+[
+ {
+  "id": "people",
+  "q": "How many people work in the business?",
+  "kind": "structural",
+  "opts": [
+   {
+    "label": "No business yet, just you and an idea",
+    "stage": 0,
+    "note": ""
+   },
+   {
+    "label": "Just me, no help",
+    "stage": 1,
+    "note": ""
+   },
+   {
+    "label": "Just me, plus freelancers or contractors",
+    "stage": 2,
+    "note": "freelancers or contractors, nobody full time"
+   },
+   {
+    "label": "1 to 4 full time",
+    "stage": 3,
+    "note": ""
+   },
+   {
+    "label": "5 to 9",
+    "stage": 4,
+    "note": ""
+   },
+   {
+    "label": "10 to 19",
+    "stage": 5,
+    "note": ""
+   },
+   {
+    "label": "20 to 49",
+    "stage": 6,
+    "note": ""
+   },
+   {
+    "label": "50 to 99",
+    "stage": 7,
+    "note": ""
+   },
+   {
+    "label": "100 to 249",
+    "stage": 8,
+    "note": ""
+   },
+   {
+    "label": "250 to 500",
+    "stage": 9,
+    "note": ""
+   }
+  ]
+ },
+ {
+  "id": "role",
+  "q": "Which one of these is closest to your actual day?",
+  "kind": "structural",
+  "opts": [
+   {
+    "label": "You are researching and building something. No customers yet",
+    "stage": 0,
+    "note": "the guides call this the Researcher"
+   },
+   {
+    "label": "You do every part of it yourself and you are chasing the first sale",
+    "stage": 1,
+    "note": "the guides call this the Starter"
+   },
+   {
+    "label": "You do all the work and all the selling, every day",
+    "stage": 2,
+    "note": "the guides call this the Doer"
+   },
+   {
+    "label": "You spend real time teaching other people to do the work",
+    "stage": 3,
+    "note": "the guides call this the Trainer"
+   },
+   {
+    "label": "You manage a small team and decide who does what",
+    "stage": 4,
+    "note": "the guides call this the Manager"
+   },
+   {
+    "label": "You manage two or three managers, not the front line",
+    "stage": 5,
+    "note": "the guides call this the Director"
+   },
+   {
+    "label": "You run a full team of managers and work on how well things run",
+    "stage": 6,
+    "note": "the guides call this the Leader"
+   },
+   {
+    "label": "You run departments through a leadership team",
+    "stage": 7,
+    "note": "the guides call this the Executive"
+   },
+   {
+    "label": "You run the company through an executive team",
+    "stage": 8,
+    "note": "the guides call this the President"
+   },
+   {
+    "label": "You chair the business and place big bets on what comes next",
+    "stage": 9,
+    "note": "the guides call this the Chairman"
+   }
+  ]
+ },
+ {
+  "id": "money",
+  "q": "What is true about money?",
+  "kind": "working",
+  "opts": [
+   {
+    "label": "No business bank account, personal money is the business's money",
+    "stage": 0,
+    "note": ""
+   },
+   {
+    "label": "No way to collect money at all",
+    "stage": 1,
+    "note": "graduate by setting up a payment processor, running a payment, getting a deposit"
+   },
+   {
+    "label": "No bookkeeping and no plan for taxes",
+    "stage": 2,
+    "note": "graduate by spinning up a QuickBooks equivalent, saving for taxes, checking the bank account daily"
+   },
+   {
+    "label": "People getting paid informally, no payroll",
+    "stage": 3,
+    "note": ""
+   },
+   {
+    "label": "Lumpy cash flow, no P&L or cash flow statement, no business insurance",
+    "stage": 4,
+    "note": ""
+   },
+   {
+    "label": "You don't know how much you can reinvest into growth, no budget or forecast",
+    "stage": 5,
+    "note": ""
+   },
+   {
+    "label": "You're spending to grow and not growing, no balance sheet, no quarterly tax payments",
+    "stage": 6,
+    "note": ""
+   },
+   {
+    "label": "The team spends money loosely, no department budgets, no expense approvals",
+    "stage": 7,
+    "note": ""
+   },
+   {
+    "label": "Paying retail for everything, cash sitting at 0%",
+    "stage": 8,
+    "note": ""
+   },
+   {
+    "label": "Books not credible enough to raise, borrow, or buy",
+    "stage": 9,
+    "note": ""
+   }
+  ]
+ },
+ {
+  "id": "product",
+  "q": "What is true about the product?",
+  "kind": "working",
+  "opts": [
+   {
+    "label": "Nothing to sell",
+    "stage": 0,
+    "note": ""
+   },
+   {
+    "label": "Something exists but isn't good enough to charge for",
+    "stage": 1,
+    "note": ""
+   },
+   {
+    "label": "Paying customers exist but the product is unreliable",
+    "stage": 2,
+    "note": ""
+   },
+   {
+    "label": "Too many complaints to fix them all",
+    "stage": 3,
+    "note": ""
+   },
+   {
+    "label": "You said yes to everyone and the product is pulled in too many directions",
+    "stage": 4,
+    "note": ""
+   },
+   {
+    "label": "One product, customers have nothing else to buy, they churn",
+    "stage": 5,
+    "note": ""
+   },
+   {
+    "label": "Two products, improving both at once slows everything down",
+    "stage": 6,
+    "note": ""
+   },
+   {
+    "label": "Product feels outdated and improvements take too long to ship",
+    "stage": 7,
+    "note": ""
+   },
+   {
+    "label": "Too many features, customers are overwhelmed",
+    "stage": 8,
+    "note": ""
+   },
+   {
+    "label": "Cash cows you can't safely change, and you need something new",
+    "stage": 9,
+    "note": ""
+   }
+  ]
+ },
+ {
+  "id": "customers",
+  "q": "How do you get customers?",
+  "kind": "working",
+  "opts": [
+   {
+    "label": "Nobody knows you exist at all, free or paid",
+    "stage": 0,
+    "note": ""
+   },
+   {
+    "label": "People have tried your free thing, but nobody knows you sell anything",
+    "stage": 1,
+    "note": ""
+   },
+   {
+    "label": "Lead flow starts and stops",
+    "stage": 2,
+    "note": ""
+   },
+   {
+    "label": "Leads are colder and slower to buy, no long term nurture",
+    "stage": 3,
+    "note": ""
+   },
+   {
+    "label": "Too many unqualified leads",
+    "stage": 4,
+    "note": ""
+   },
+   {
+    "label": "Qualified leads are too expensive and cap your ad spend",
+    "stage": 5,
+    "note": ""
+   },
+   {
+    "label": "Ads convert worse on cold traffic, CAC rising",
+    "stage": 6,
+    "note": ""
+   },
+   {
+    "label": "Only one way to get customers, so lead flow is volatile",
+    "stage": 7,
+    "note": ""
+   },
+   {
+    "label": "Broader creative brings lower quality leads and dilutes the brand",
+    "stage": 8,
+    "note": ""
+   },
+   {
+    "label": "You can't attribute leads by channel anymore, and compliance is now an issue",
+    "stage": 9,
+    "note": ""
+   }
+  ]
+ }
+]

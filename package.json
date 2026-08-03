@@ -1,0 +1,26 @@
+{
+  "name": "scaling-roadmap",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "data": "node build-data.mjs",
+    "dev": "next dev -p 3111",
+    "build": "node scripts/check-tokens.mjs && node scripts/check-questions.mjs && next build",
+    "start": "next start",
+    "migrate": "node --env-file=.env.local scripts/migrate.mjs",
+    "check": "node scripts/check-tokens.mjs && node scripts/check-questions.mjs && node scripts/test-grading.mjs"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.2",
+    "bcryptjs": "^3.0.2",
+    "next": "^15.5.4",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.2.4",
+    "typescript": "^5.7.2"
+  }
+}
