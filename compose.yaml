@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:18
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: roadmap
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres-data:/var/lib/postgresql
+
+  app:
+    image: mcr.microsoft.com/devcontainers/typescript-node:5-26-trixie
+    restart: unless-stopped
+    command: sleep infinity
+    working_dir: /workspaces/scaling-roadmap
+    volumes:
+      - .:/workspaces/scaling-roadmap
+
+volumes:
+  postgres-data:

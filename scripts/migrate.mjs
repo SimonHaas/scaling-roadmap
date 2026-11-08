@@ -1,12 +1,12 @@
 // Creates the isolated `roadmap` schema. Safe to re-run.
-import { neon } from '@neondatabase/serverless';
+import { createSql } from '../src/lib/db-client.mjs';
 
 const url = process.env.DATABASE_URL || process.env.POSTGRES_URL;
 if (!url) {
   console.error('DATABASE_URL is not set. Put it in .env.local.');
   process.exit(1);
 }
-const sql = neon(url);
+const sql = createSql(url);
 
 const statements = [
   `create schema if not exists roadmap`,
